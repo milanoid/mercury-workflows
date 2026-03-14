@@ -1,3 +1,7 @@
+# my
+.idea/
+.DS_Store
+
 # Local .terraform directories
 .terraform/
 
