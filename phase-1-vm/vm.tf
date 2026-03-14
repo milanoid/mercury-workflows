@@ -10,7 +10,7 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "c9f99369-d202-458b-9a97-4c95a5cbc20c"
+  subscription_id = "ab577f05-79c6-4633-b730-0293419a9171"
 }
 
 # Resource Group
@@ -92,7 +92,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   name                = "vm-demo"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
-  size                = "Standard_B2s"
+  size                = "Standard_D2s_v6"
   admin_username      = "azureuser"
 
   network_interface_ids = [
@@ -101,7 +101,7 @@ resource "azurerm_linux_virtual_machine" "main" {
 
   admin_ssh_key {
     username   = "azureuser"
-    public_key = file("~/.ssh/mercury.pub")
+    public_key = file("~/.ssh/id_rsa.pub")
   }
 
   os_disk {
@@ -123,5 +123,5 @@ output "public_ip" {
 }
 
 output "ssh_command" {
-  value = "ssh -i ~/.ssh/mercury azureuser@${azurerm_public_ip.main.ip_address}"
+  value = "ssh azureuser@${azurerm_public_ip.main.ip_address}"
 }
