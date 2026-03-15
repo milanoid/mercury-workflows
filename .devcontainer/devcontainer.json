@@ -1,14 +1,8 @@
 {
   "build": {
     "context": "..",
-    "dockerfile": "Dockerfile",
-    "args": {
-      "USER_UID": "501",
-      "USER_GID": "20"
-    }
+    "dockerfile": "Dockerfile"
   },
-  "remoteUser": "vscode",
-  "containerUser": "vscode",
   "postCreateCommand": "scripts/setup",
   "forwardPorts": [
     3008
