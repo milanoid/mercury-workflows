@@ -1,6 +1,7 @@
 # my
 .idea/
 .DS_Store
+*.zip
 
 # Local .terraform directories
 .terraform/
