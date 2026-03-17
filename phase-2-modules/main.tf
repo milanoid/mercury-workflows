@@ -10,7 +10,7 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "c9f99369-d202-458b-9a97-4c95a5cbc20c"
+  subscription_id = "ab577f05-79c6-4633-b730-0293419a9171"
 }
 
 # Customer 1: CATO Corporation
@@ -51,18 +51,18 @@ output "cato_postgres" {
   value       = module.cato.postgres_fqdn
 }
 
-# # Outputs for Customer 2
-# output "cicero_vm_ip" {
-#   description = "Cicero VM public IP"
-#   value       = module.cicero.vm_public_ip
-# }
-#
-# output "cicero_ssh" {
-#   description = "Cicero SSH connection"
-#   value       = module.cicero.ssh_connection
-# }
-#
-# output "cicero_postgres" {
-#   description = "Cicero PostgreSQL FQDN"
-#   value       = module.cicero.postgres_fqdn
-# }
+# Outputs for Customer 2
+output "cicero_vm_ip" {
+  description = "Cicero VM public IP"
+  value       = module.cicero.vm_public_ip
+}
+
+output "cicero_ssh" {
+  description = "Cicero SSH connection"
+  value       = module.cicero.ssh_connection
+}
+
+output "cicero_postgres" {
+  description = "Cicero PostgreSQL FQDN"
+  value       = module.cicero.postgres_fqdn
+}
