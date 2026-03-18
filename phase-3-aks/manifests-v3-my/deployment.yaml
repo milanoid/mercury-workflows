@@ -23,11 +23,11 @@ spec:
                 name: n8n-configmap
           volumeMounts:
             - mountPath: /home/node/.n8n
-              name: n8n_data
+              name: n8n-data
           securityContext:
             allowPrivilegeEscalation: false
             runAsUser: 1000
       volumes:
-        - name: n8n_data
+        - name: n8n-data
           persistentVolumeClaim:
             claimName: n8n-pvc
