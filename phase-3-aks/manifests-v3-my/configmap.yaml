@@ -7,5 +7,5 @@ metadata:
 data:
   GENERIC_TIMEZONE: "Europe/Prague" 
   TZ: "Europe/Prague"
-  N8N_RUNNERS_ENABLED: true
-  N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
+  N8N_RUNNERS_ENABLED: "true"
+  N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
