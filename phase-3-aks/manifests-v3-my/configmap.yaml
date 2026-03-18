@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: n8n-configmap
+  namespace: n8n
+data:
+  GENERIC_TIMEZONE: "Europe/Prague" 
+  TZ: "Europe/Prague"
+  N8N_RUNNERS_ENABLED: true
+  N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
