@@ -19,7 +19,7 @@ spec:
           ports:
             - containerPort: 5678
           envFrom:
-            - secretRef:
+            - configMapRef:
                 name: n8n-configmap
           volumeMounts:
             - mountPath: /home/node/.n8n
