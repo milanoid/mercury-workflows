@@ -1,0 +1,49 @@
+# Deploy n8n using SQLite database
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: n8n-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: n8n-postgres
+
+  template:
+    metadata:
+      labels:
+        app: n8n-postgres
+
+    spec:
+      # securityContext:
+      #   runAsUser: 1000
+      #   runAsGroup: 1000
+      #   fsGroup: 1000
+
+      containers:
+        - name: postgres
+          image: postgres:14.22@sha256:705a5d5b5836f3fcba0d02c4d281e6a7dd9ed2dd4078640f08a1e1e9896e097d
+
+          securityContext:
+            allowPrivilegeEscalation: false
+
+          envFrom:
+            - configMapRef:
+                name: n8n-postgres-configmap
+
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: n8n-postgres-data
+
+      restartPolicy: Always
+
+      volumes:
+        - name: n8n-postgres-data
+          persistentVolumeClaim:
+            claimName: n8n-postgres-data
+

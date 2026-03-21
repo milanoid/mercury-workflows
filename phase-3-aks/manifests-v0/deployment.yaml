@@ -39,10 +39,10 @@ spec:
           volumeMounts:
             - mountPath: /home/node/.n8n
               name: n8n-data
-
       restartPolicy: Always
 
       volumes:
         - name: n8n-data
           persistentVolumeClaim:
             claimName: n8n-data
+
