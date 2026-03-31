@@ -10,7 +10,7 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "c9f99369-d202-458b-9a97-4c95a5cbc20c"
+  subscription_id = "ab577f05-79c6-4633-b730-0293419a9171"
 }
 
 resource "azurerm_resource_group" "aks" {
@@ -50,7 +50,7 @@ resource "azurerm_kubernetes_cluster" "main" {
 
 resource "azurerm_postgresql_flexible_server" "n8n_db" {
 
-  name                = "psql-n8n-mercury"
+  name                = "psql-milanoid-n8n-mercury"
   resource_group_name = azurerm_resource_group.aks.name
   location            = azurerm_resource_group.aks.location
   zone                = "2"
