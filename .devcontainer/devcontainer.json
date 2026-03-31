@@ -3,6 +3,9 @@
     "context": "..",
     "dockerfile": "Dockerfile"
   },
+  "remoteEnv": {
+      "SSH_AUTH_SOCK": "${localEnv:SSH_AUTH_SOCK}"
+  },
   "postCreateCommand": "scripts/setup",
   "forwardPorts": [
     3008
