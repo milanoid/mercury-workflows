@@ -6,7 +6,7 @@
   "remoteEnv": {
       "SSH_AUTH_SOCK": "${localEnv:SSH_AUTH_SOCK}"
   },
-  "postCreateCommand": "scripts/setup",
+  "postCreateCommand": "scripts/setup; echo 'alias k=kubectl' >> ~/.bash_aliases;",
   "forwardPorts": [
     3008
   ]
