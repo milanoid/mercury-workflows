@@ -14,7 +14,7 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "c9f99369-d202-458b-9a97-4c95a5cbc20c"
+  subscription_id = "ab577f05-79c6-4633-b730-0293419a9171"
 }
 
 resource "azurerm_resource_group" "aks" {
@@ -65,7 +65,7 @@ resource "azurerm_kubernetes_flux_configuration" "main" {
   namespace  = "flux-system"
 
   git_repository {
-    url             = "ssh://git@github.com/mischavandenburg/mercury-gitops"
+    url             = "ssh://git@github.com/milanoid/mercury-workflows.git"
     reference_type  = "branch"
     reference_value = "main"
 
