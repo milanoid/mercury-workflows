@@ -1,8 +1,17 @@
 {
   "build": {
     "context": "..",
-    "dockerfile": "Dockerfile"
+    "dockerfile": "Dockerfile",
+    "args": {
+      // Pass the host username and uid/gid so in-container files match bind-mount ownership
+      "USERNAME": "${localEnv:USER}",
+      // macOS default uid is 501; change if your host uid differs (run `id -u`)
+      "USER_UID": "501",
+      "USER_GID": "501"
+    }
   },
+  "remoteUser": "${localEnv:USER}",
+  "updateContainerUserID": false,
   "remoteEnv": {
       "SSH_AUTH_SOCK": "${localEnv:SSH_AUTH_SOCK}"
   },
