@@ -74,14 +74,14 @@ resource "azurerm_kubernetes_flux_configuration" "main" {
 
   kustomizations {
     name                       = "infra-controllers"
-    path                       = "./infrastructure/controllers/staging"
+    path                       = "./phase-5-gitops/mercury-gitops/infrastructure/controllers/staging"
     sync_interval_in_seconds   = 300
     garbage_collection_enabled = true
   }
 
   kustomizations {
     name                       = "infra-configs"
-    path                       = "./infrastructure/configs/staging"
+    path                       = "./phase-5-gitops/mercury-gitops/infrastructure/configs/staging"
     sync_interval_in_seconds   = 300
     depends_on                 = ["infra-controllers"]
     garbage_collection_enabled = true
@@ -89,7 +89,7 @@ resource "azurerm_kubernetes_flux_configuration" "main" {
 
   kustomizations {
     name                       = "apps"
-    path                       = "./apps/staging"
+    path                       = "./phase-5-gitops/mercury-gitops/apps/staging"
     sync_interval_in_seconds   = 300
     depends_on                 = ["infra-configs"]
     garbage_collection_enabled = true
